@@ -642,13 +642,13 @@
               </div>
             </div>
           </div>
-          <div style="margin-top: 10pc;" class="pie row
+          <div style="margin-top: 10pc; margin-bottom: 3pc;" class="pie row
                justify-center relative-position">
             <div class="col-10 absolute-center">
               <img width="100%" height="auto" src="images/fund1.png" alt="allocation">
             </div>
           </div>
-          <div class="relative-position mediaDiv q-pa-lg"
+          <!-- <div class="relative-position mediaDiv q-pa-lg"
                style="background: #92B23C">
             <h3>Media</h3>
             <div class="row justify-center">
@@ -672,7 +672,7 @@
                 </q-card>
               </div>
             </div>
-          </div>
+          </div> -->
         </q-page-container>
         <q-layout-footer style="bottom: -200px; z-index: 1;" class="row q-pa-lg
                          justify-around">
