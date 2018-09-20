@@ -1,10 +1,16 @@
 <?php
 require '../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 if (isset($_POST['action']) && $_POST['action'] === 'support') {
-  $email = $_REQUEST['email'] ;
-  $message = $_REQUEST['message'] ;
-  $name = $_REQUEST['name'] ;
+  $email = test_input($_REQUEST['email']) ;
+  $message = test_input($_REQUEST['message']) ;
+  $name = test_input($_REQUEST['name']) ;
   $mail = new PHPMailer();
   $mail->IsSMTP();                                      // set mailer to use SMTP
   $mail->Host = "mail.betvibe.co";  // specify main and backup server

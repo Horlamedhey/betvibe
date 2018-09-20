@@ -202,6 +202,10 @@ if(!Session::get('email')){
           <div class="col-xs-12 col-md-6 col-lg-4 q-pa-lg">
             <h6 class="text-center">Join the Conversation</h6>
             <div class="row justify-around">
+            <div @click="launch(' https://bitcointalk.org/index.php?topic=5032557.msg45893473#msg45893473')" class="media-logo"
+                 style="background: #FFB00C;">
+              <q-icon name="mdi-bitcoin" color="white" size="40px"></q-icon>
+            </div>
             <div @click="launch('https://medium.com/@betvibe')" class="media-logo"
                  style="background: #000000;">
               <q-icon name="mdi-medium" color="white" size="40px"></q-icon>
@@ -310,7 +314,7 @@ if(!Session::get('email')){
             </div>
           </div>
           <div class="col-xs-12 text-center">&COPY; 2018 Betvibe</div>
-      </q-layout-footer>
+        </q-layout-footer>
     </q-layout>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/quasar-framework@^0.17.0/dist/umd/quasar.ie.polyfills.umd.min.js"></script>

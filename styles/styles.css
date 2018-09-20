@@ -170,6 +170,10 @@ li{
    rgb(43, 192, 87) 70px);
    margin: 5% 20px!important;
 }
+.med{
+  background: -webkit-linear-gradient(150deg, rgb(61, 140, 172) 30px,
+   rgb(43, 192, 87) 70px);
+}
 .register{
   margin: 0!important;
 }

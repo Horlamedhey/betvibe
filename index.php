@@ -77,13 +77,6 @@
         background: green!important;
         height: 4px!important;
       }
-      #loginBtn{
-        background: rgba(0,128,0, 0.5);
-        color: #ddd;
-      }
-      #loginBtn:hover{
-        background: rgba(0,128,0, 1);
-      }
       .foot{
         width: fit-content;
         margin: auto;
@@ -106,7 +99,7 @@
     ?>
     <div id="q-app">
       <q-layout view="lHh Lpr fff" @scroll="reactScroll()">
-        <q-layout-header>
+        <q-layout-header style="z-index: 1;">
           <q-toolbar :color="navColor">
             <q-toolbar-title style="animation-duration: 3s;" class="animated fadeIn">
               <div class="row justify-between" style="width:165px;margin-top: 10px;">
@@ -155,16 +148,31 @@
               <q-item-main class="text-white" :label="item.name"></q-item-main>
             </q-item>
           </q-list>
+          <div style="width: fit-content; margin: auto;" class="row">
+          <q-btn style="color: white;" class="med text-weight-bolder q-mr-sm" size="sm" @click="openForm('register')">
+                 register
+          </q-btn>
+          <q-btn style="color: white;" class="med text-weight-bolder q-mr-sm" size="sm" id="loginBtn" @click.stop="openForm('login')">
+                 login
+          </q-btn>
+          <q-btn style="color: white;"  class="med text-weight-bolder" size="sm" @click="launch('dashboard.php')">
+            dashboard
+          </q-btn>
+        </div>
         </q-layout-drawer>
-        <q-fab @hover.native="show()" glossy style="position: fixed; right: 18px; bottom: 18px" color="green" icon="mdi-balloon" direction="up">
-          <q-fab-action id="loginBtn" color="purple" @click.stop="openForm('login')" icon="mdi-login">
-            <q-tooltip>Login</q-tooltip>
-          </q-fab-action>
-
-          <q-fab-action color="secondary" @click="launch('dashboard.php')" icon="mdi-view-dashboard">
-          <q-tooltip>Dashboard</q-tooltip>
-          </q-fab-action>
-        </q-fab>
+        <div style="z-index: 1; position: fixed; right: 18px; top: 95px"
+             class="desktop-only row">
+          <q-btn :color="menuColor" :style="menuColor === 'white' ? 'color: black!important' : 'color: white!important'" class="text-weight-bolder q-mr-sm" size="sm" @click="openForm('register')" glossy>
+                 register
+          </q-btn>
+          <q-btn :color="menuColor" :style="menuColor === 'white' ? 'color: black!important' : 'color: white!important'" class="text-weight-bolder q-mr-sm" size="sm" id="loginBtn" @click.stop="openForm('login')"
+                 glossy>
+                 login
+          </q-btn>
+          <q-btn :color="menuColor" :style="menuColor === 'white' ? 'color: black!important' : 'color: white!important'" class="text-weight-bolder" size="sm" glossy @click="launch('dashboard.php')">
+            dashboard
+          </q-btn>
+        </div>
         <q-page-container style="padding-right:0;">
           <q-modal :content-css="{minWidth: '80vw', minHeight: '80vh'}"
                     v-model="form">
@@ -626,9 +634,9 @@
 
               <div class="text-center q-display-4" style="color: #FF88DA; text-shadow:  2px 2px 10px orangered, -2px -2px 10px orangered;">Bounty Live!</div>
               <p class="text-center">
-                Click the link to access our bitcointalk thread.
+              Click this link to access our <q-btn @click="launch('https://bitcointalk.org/index.php?topic=5032559.msg45893532#msg45893532')" class="text-weight-bolder whitepaper">Bounty program on Bitcointalk</q-btn>
               </p>
-              <p class="text-center">
+              <p class="text-center q-pb-xl q-mb-xl">
                 Ensure all rules are followed to the later. Don't gamble  with the rules.
               </p>
               </div>
@@ -647,7 +655,7 @@
               <div class="q-pb-xl col-xs-11 col-md-6 col-lg-4">
                 <q-card inline style="width: 90%">
                   <q-card-media overlay-position="top">
-                    <q-card-title slot="overlay">Selfdrop Listing</q-card-title>
+                    <q-card-title slot="overlay">Airdrop Listing</q-card-title>
                     <img width="100%" height="auto" src="images/media1.jpeg" alt="">
                     <q-card-actions align="center">
                       <q-btn class="animated pulse" @click="launch('https://twitter.com/AirdropDet')"
@@ -671,6 +679,10 @@
           <div class="col-xs-12 col-md-6 col-lg-4 q-pa-lg">
             <h6 class="text-center">Join the Conversation</h6>
             <div class="row justify-around">
+            <div @click="launch(' https://bitcointalk.org/index.php?topic=5032557.msg45893473#msg45893473')" class="media-logo"
+                 style="background: #FFB00C;">
+              <q-icon name="mdi-bitcoin" color="white" size="40px"></q-icon>
+            </div>
             <div @click="launch('https://medium.com/@betvibe')" class="media-logo"
                  style="background: #000000;">
               <q-icon name="mdi-medium" color="white" size="40px"></q-icon>
